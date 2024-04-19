@@ -21,7 +21,7 @@ class ClienteBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
         feita apenas com base no nome do cliente.
     """
-    nome: str = "Teste"
+    id: str = "Teste"
 
 def apresenta_cliente(cliente: Cliente):
     """ Retorna uma representação do cliente seguindo o schema definido em

@@ -37,7 +37,7 @@ def apresenta_vendas(vendas):
             "nome": venda.nome, 
             "quantidade": venda.quantidade,
             "valor": venda.valor,
-            "data_venda": venda.data_venda
+            "data_venda": venda.data_venda.strftime("%d/%m/%Y %H:%M:%S")
         })
 
     return {"vendas": result}

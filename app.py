@@ -276,7 +276,7 @@ def set_venda(form: VendaSchema):
 @app.get('/venda/', tags=[venda_tag],
          responses={"200": VendaViewSchema, "404": ErrorSchema})
 def get_venda(query: VendaBuscaSchema):
-    "Realiza a busca de uma vendo podendo ser por data, cliente_id ou produto_id"
+    "Realiza a busca de uma vendo podendo ser por data, cliente_id"
     logger.debug(f"Coletando vendas")
     session = Session()
     
@@ -290,7 +290,7 @@ def get_venda(query: VendaBuscaSchema):
         join(Produto, Venda.produto_id == Produto.id).\
         join(Cliente, Venda.cliente_id == Cliente.id).\
         filter(Venda.cliente_id == query.cliente_id).all()
-
+    print(vendas)
     if not vendas:
         error_msg = "Venda não encontrada na base :/"
         logger.warning(f"Erro ao buscar venda. {error_msg}")
