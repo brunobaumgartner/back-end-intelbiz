@@ -227,7 +227,9 @@ def update_produto(form: ProdutoUpdateSchema):
           responses={"200": ListaVendasSchema, "400": ErrorSchema})
 def set_venda(form: VendaSchema):
     " Insere uma venda onde uma venda pode ter varios produtos com o mesmo venda_id e cliente_id"
+    print(form)
     session = Session()
+    
     #Verifica a existencia do produto
     produto_id = form.produto_id
     logger.debug(f"Verificando se o produto #{produto_id} existe")
